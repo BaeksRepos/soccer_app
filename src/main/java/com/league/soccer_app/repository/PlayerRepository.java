@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 @Component
 @Repository
@@ -27,12 +29,16 @@ public class PlayerRepository implements RepositoryInterface {
 
     @Override
     public ArrayList<PlayerModel> selectPlayers(int playerId) {
+
         return null;
     }
 
     @Override
-    public ArrayList<PlayerModel> selectPlayers(String playerName) {
-        return null;
+    public List<Map<String, Object>> selectPlayers(String playerName) {
+        List<Map<String, Object>>players = sqlSession.selectList("selectPlayerToName", playerName);
+
+
+        return players;
     }
 
     @Override

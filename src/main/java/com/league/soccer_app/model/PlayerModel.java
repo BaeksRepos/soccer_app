@@ -10,4 +10,5 @@ public class PlayerModel {
     private String position;
     private int tall;
     private int teamId;
+    private String teamName;
 }

@@ -5,6 +5,9 @@ import com.league.soccer_app.repository.PlayerRepository;
 import com.league.soccer_app.repository.RepositoryInterface;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Map;
+
 @Service
 public class PlayerService {
     private RepositoryInterface repository;
@@ -16,6 +19,10 @@ public class PlayerService {
     public void insertPlayer(PlayerModel player){
         this.repository.insertPlayer(player);
 
+    }
+
+    public List<Map<String, Object>> selectPlayer(String playerName){
+        return this.repository.selectPlayers(playerName);
     }
 
 }

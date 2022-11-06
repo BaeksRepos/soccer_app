@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Map;
+
 @Controller
 public class PlayerController {
 
@@ -22,5 +25,15 @@ public class PlayerController {
         service.insertPlayer(player);
 
         return player;
+    }
+
+    @RequestMapping(value = "selectPlayer", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Map<String, Object>> selectPlayers(@RequestParam("playerName") String playerName){
+
+        PlayerService service = new PlayerService(repository);
+        List<Map<String, Object>> players = service.selectPlayer(playerName);
+
+        return players;
     }
 }
