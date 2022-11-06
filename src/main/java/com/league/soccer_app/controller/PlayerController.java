@@ -24,12 +24,16 @@ public class PlayerController {
 
         service.insertPlayer(player);
 
+        System.out.println(111);
+
         return player;
     }
 
-    @RequestMapping(value = "selectPlayer", method = RequestMethod.GET)
+    @RequestMapping(value = "selectPlayer", method = RequestMethod.POST)
     @ResponseBody
-    public List<Map<String, Object>> selectPlayers(@RequestParam("playerName") String playerName){
+    public List<Map<String, Object>> selectPlayers(@RequestBody String playerName){
+
+        System.out.println(playerName);
 
         PlayerService service = new PlayerService(repository);
         List<Map<String, Object>> players = service.selectPlayer(playerName);
