@@ -17,7 +17,8 @@ public class PlayerService {
     }
 
     public void insertPlayer(PlayerModel player){
-        this.repository.insertPlayer(player);
+        int a = this.repository.insertPlayer(player);
+        System.out.println("id: " + a);
 
     }
 

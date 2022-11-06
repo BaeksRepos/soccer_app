@@ -20,11 +20,13 @@ public class PlayerRepository implements RepositoryInterface {
 
     @Override
 
-    public boolean insertPlayer(PlayerModel player) {
+    public int insertPlayer(PlayerModel player) {
 
-        sqlSession.insert("insertPlayer", player);
+        int id = sqlSession.insert("insertPlayer", player);
 
-        return false;
+        System.out.println("id = " + id);
+
+        return id;
     }
 
     @Override
@@ -36,8 +38,6 @@ public class PlayerRepository implements RepositoryInterface {
     @Override
     public List<Map<String, Object>> selectPlayers(String playerName) {
         List<Map<String, Object>>players = sqlSession.selectList("selectPlayerToName", playerName);
-
-
         return players;
     }
 

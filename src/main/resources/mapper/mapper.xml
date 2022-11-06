@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.league.soccer_app.repository.PlayerRepository">
-    <insert id="insertPlayer" parameterType="com.league.soccer_app.model.PlayerModel" >
+    <insert id="insertPlayer" parameterType="com.league.soccer_app.model.PlayerModel" useGeneratedKeys="true" keyProperty="id" >
         {
             CALL
             player_insert(
