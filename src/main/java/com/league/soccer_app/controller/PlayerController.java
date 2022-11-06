@@ -24,6 +24,8 @@ public class PlayerController {
 
         service.insertPlayer(player);
 
+        System.out.println(111);
+
         return player;
     }
 
